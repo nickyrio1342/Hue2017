@@ -373,8 +373,8 @@ void Find(int n, int k, int num) {
 
 long long n, k;
 int main() {
-    freopen("LIGHT.inp","r",stdin);
-    freopen("LIGHT.out","w",stdout);
+    //freopen("LIGHT.inp","r",stdin);
+    //freopen("LIGHT.out","w",stdout);
     ios::sync_with_stdio(false);
     cin.tie(0);cout.tie(0);
     int test;
@@ -388,6 +388,17 @@ int main() {
         memset(z, true, sizeof z);
         BigInt tmax = need = Cal(n, k);
         tt = tt - 1;
+        if (tmax <= Integer(1000000000)) {
+            int tm = tmax[0];
+            need = need - (tt % tm);
+             Find(n, k, 1);
+            for (int i = n; i>0; i--) {
+                if (z[i]) cout<<'T';
+                else cout<<'B';
+            }
+            cout<<endl;
+            continue;
+        }
         need = need - (tt % tmax);
        // Print(need);return 0;
         Find(n, k, 1);
