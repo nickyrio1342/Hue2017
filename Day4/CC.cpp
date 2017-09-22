@@ -6,7 +6,7 @@
 #define pp pair<int, int>
 
 using namespace std;
-long long a[N], n, k;
+unsigned long long a[N], n, k;
 
 void solve1() {
     long long ans = 1e18;
@@ -18,7 +18,7 @@ void solve1() {
 }
 
 void solve2() {
-    long long sumsqr = 0;
+    unsigned long long sumsqr = 0;
     FOR(i, 1, n) sumsqr += (a[i] - a[i - 1]) * (a[i] - a[i - 1]);
     double ans = (sumsqr * n - (1.0 * a[n] * a[n])) / n;
     cout<<fixed<<setprecision(2)<<ans;
@@ -26,7 +26,7 @@ void solve2() {
 
 int main() {
     freopen("CC.inp","r",stdin);
-    freopen("CC.ou","w",stdout);
+    freopen("CC.out","w",stdout);
     ios::sync_with_stdio(false);
     cin.tie(NULL);cout.tie(NULL);
     cin>>n>>k;
